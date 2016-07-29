@@ -6,6 +6,7 @@ FROM ubuntu:16.04
 MAINTAINER Nickolai Barnum <nbarnum@users.noreply.github.com>
 
 ENV ZABBIX_VERSION 3.0
+ENV ZABBIX_PORT="10051"
 
 # Install Zabbix and dependencies
 RUN \
@@ -39,5 +40,5 @@ EXPOSE 10051
 
 # Will run `/bin/docker run`, which instructs
 # monit to start zabbix_proxy.
-ENTRYPOINT ["/bin/docker-zabbix"]
+ENTRYPOINT ["/bin/docker-zabbix" ]
 CMD ["run"]
