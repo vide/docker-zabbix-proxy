@@ -1,18 +1,18 @@
-# Zabbix version 2.4.5
+# Zabbix version 3.0.3
 
 # Pull base image
-FROM ubuntu:14.04
+FROM ubuntu:16.04
 
 MAINTAINER Nickolai Barnum <nbarnum@users.noreply.github.com>
 
-ENV ZABBIX_VERSION 2.4
+ENV ZABBIX_VERSION 3.0
 
 # Install Zabbix and dependencies
 RUN \
   apt-get update && apt-get install -y software-properties-common wget && \
-  wget http://repo.zabbix.com/zabbix/${ZABBIX_VERSION}/ubuntu/pool/main/z/zabbix-release/zabbix-release_${ZABBIX_VERSION}-1+trusty_all.deb \
-       -O /tmp/zabbix-release_${ZABBIX_VERSION}-1+trusty_all.deb  && \
-  dpkg -i /tmp/zabbix-release_${ZABBIX_VERSION}-1+trusty_all.deb && \
+  wget http://repo.zabbix.com/zabbix/${ZABBIX_VERSION}/ubuntu/pool/main/z/zabbix-release/zabbix-release_${ZABBIX_VERSION}-1+xenial_all.deb \
+       -O /tmp/zabbix-release_${ZABBIX_VERSION}-1+xenial_all.deb  && \
+  dpkg -i /tmp/zabbix-release_${ZABBIX_VERSION}-1+xenial_all.deb && \
   apt-add-repository multiverse && apt-get update && \
   apt-get install -y monit \
                      snmp-mibs-downloader \
